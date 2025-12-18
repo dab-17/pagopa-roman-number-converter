@@ -13,32 +13,7 @@
 
 public static class RomanNumberConverter
 {
-    public static int ToDecimal(string input) => ToDecimalV2(input);
-
-    private static int ToDecimalV2(string input)
-    {
-        int output = 0;
-        List<int> values = [.. input
-            .Select(c => Enum.Parse<RomanNumber>(c.ToString()))
-            .Cast<int>()
-        ];
-
-        int current;
-        for (int i = 0; i < values.Count; i++)
-        {
-            current = values[i];
-            int? next = GetValueOrNull(values, i+1);
-
-            if (next.HasValue && next.Value > current)
-                output -= current;
-            else
-                output += current;
-        }
-
-
-        Console.WriteLine(input + " = " + output);
-        return output;
-    }
+    public static int ToDecimal(string input) => ToDecimalV1(input);
 
     private static int ToDecimalV1(string input)
     {

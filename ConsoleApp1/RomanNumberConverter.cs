@@ -40,10 +40,6 @@ public static class RomanNumberConverter
         return output;
     }
 
-    static int? GetValueOrNull(IEnumerable<int> values, int index)
-    {
-        int? value;
-        value = index < values.Count() ? values.ElementAt(index) : null;
-        return value;
-    }
+    static int? GetValueOrNull(IEnumerable<int> values, int index) 
+        => index < values.Count() ? values.ElementAt(index) : null;
 }
